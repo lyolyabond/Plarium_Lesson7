@@ -69,7 +69,7 @@ namespace TaskB
                 //Проход по элементам словаря
                 foreach (KeyValuePair<int, Manufacturer> keyValue in AddDelete.Manufacturers)
                 {//Проверка, есть ли такое название
-                    if (keyValue.Value.ManufacturerName == name)
+                    if (string.Equals(keyValue.Value.ManufacturerName, name, StringComparison.OrdinalIgnoreCase))
                         KeyMatchingForList(keyValue.Key, ref flag);
                     //Вывод информации по ключу
                 }
@@ -95,7 +95,7 @@ namespace TaskB
                 //Проход по элементам словаря
                 foreach (KeyValuePair<int, Manufacturer> keyValue in AddDelete.Manufacturers)
                 {//Проверка, есть ли такое название страны
-                    if (keyValue.Value.ManufacturerCountry == country)
+                    if (string.Equals(keyValue.Value.ManufacturerCountry, country, StringComparison.OrdinalIgnoreCase))
                         KeyMatchingForList(keyValue.Key, ref flag);
                     //Вывод информации по ключу
                 }
@@ -153,7 +153,7 @@ namespace TaskB
                 foreach (Souvenir value in AddDelete.collectionClass)
                 {
                     //Если подходит под условия
-                    if (value.SouvenirName == souvenirName && value.ReleaseDate == releaseDate)
+                    if (string.Equals(value.SouvenirName, souvenirName, StringComparison.OrdinalIgnoreCase) && value.ReleaseDate == releaseDate)
                     {
                         KeyMatchingForDictionary(value.ManufacturerRequisites, ref flag);
                         //Вывод информации по ключу

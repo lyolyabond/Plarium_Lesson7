@@ -71,7 +71,7 @@ namespace TaskB
             bool flag = false;
             for (int i = 0; i < this.Length(); i++)
             {
-                if (this[i].ManufacturerRequisites == keyEventArgs.key)
+                if (this[i].ManufacturerRequisites == keyEventArgs.Key)
                 {
                     //Удаление элемента по индексу из списка сувениров
                     this.Remove(i);
@@ -80,7 +80,7 @@ namespace TaskB
             }
             if(flag)
             {
-                Console.WriteLine($"Удаление сувенира с ID {keyEventArgs.key} прошло успешно!");
+                Console.WriteLine($"Удаление сувенира с ID {keyEventArgs.Key} прошло успешно!");
             }
         }
 

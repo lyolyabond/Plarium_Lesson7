@@ -4,16 +4,29 @@ using System.Text;
 
 namespace TaskA
 {
+    //Делегат для события
+    public delegate void KeyHandler(object source, KeyEventArgs arg);
+    //Класс, который хранит код клавиши
+    public class KeyEventArgs : EventArgs
+    {
+        public char ch;
+    }
     class KeyEvent
     {
         //Определение события
-        public event Program.KeyHandler KeyPress;
-        public void OnKeyPress(char symbol)
+        public event KeyHandler KeyPress;
+        protected virtual void OnKeyPress(KeyEventArgs arg)
         {
-            Program.KeyEventArgs keyEventArgs = new Program.KeyEventArgs();
-                keyEventArgs.symbol = symbol;
+            var temp = KeyPress;
             //Вызов события, проверка на null перед вызовом
-                KeyPress?.Invoke(this, keyEventArgs); 
+            temp?.Invoke(this, arg); 
         }
+        public void NewKey(char ch)
+        {
+            var arg = new KeyEventArgs();
+            arg.ch = ch;
+            OnKeyPress(arg);
+        }
+
     }
 }

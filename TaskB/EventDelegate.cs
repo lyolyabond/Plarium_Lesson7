@@ -14,7 +14,11 @@ namespace TaskB
         //Класс, который содержит значение для использования событий
         public class KeyEventArgs : EventArgs
         {
-            public int key;
+            public int Key { get; }
+            public KeyEventArgs(int key)
+            {
+                Key = key;
+            }
         }
     }
 }

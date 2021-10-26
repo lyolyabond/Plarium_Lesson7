@@ -8,7 +8,7 @@ namespace TaskB
     {
         public static void ConsoleMenu()
         {
-            Manufacturer eventDelete = new Manufacturer();
+            var eventDelete = new Manufacturer();
             //Подписка на событие
             eventDelete.ManufacturerRemoved += AddDelete.collectionClass.DeleteObjectsByKey;
 

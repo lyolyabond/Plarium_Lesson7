@@ -27,12 +27,17 @@ namespace TaskB
         }
 
         //Метод вызывает событие
-        public void OnManufacturerRemoved(int key)
+        protected virtual void OnManufacturerRemoved(EventDelegate.KeyEventArgs e)
         {
-            EventDelegate.KeyEventArgs keyEventArgs = new EventDelegate.KeyEventArgs();
-            keyEventArgs.key = key;
+            var temp = ManufacturerRemoved;
             //Вызов события, проверка на null перед вызовом
-            ManufacturerRemoved?.Invoke(this, keyEventArgs);
+            temp?.Invoke(this, e);
         }
+        public void RemoveManufacturer(int key)
+        {
+            var e = new EventDelegate.KeyEventArgs(key);
+            OnManufacturerRemoved(e);
+        }
+
     }
 }

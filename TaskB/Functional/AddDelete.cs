@@ -37,7 +37,7 @@ namespace TaskB
                         //Удаление элемента по ключу из словаря производителей
                         Manufacturers.Remove(keyValue.Key);
                         //Метод, который вызывает событие
-                        eventDelete.OnManufacturerRemoved(keyValue.Key);
+                        eventDelete.RemoveManufacturer(keyValue.Key);
                         flag = true;
                     }
                 }
